@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600;700&family=Heebo&family=Oswald:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0; 
+}
+
+nav{
+    background-color: rgb(2, 155, 122);
+    color: rgb(6, 6, 66);
+    height: 75px;
+    display: flex;
+    align-items: center;
+    
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li{
+    margin: 0 12px;
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    font-family: 'Heebo', sans-serif; 
+    font-family: 'Oswald', sans-serif; 
+    font-size: 3vh;
+}
+
+.container{
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
+.gameContainer{
+    
+    display: grid;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+    position: relative;
+}
+
+.line{
+    position: absolute;
+    background-color: black;
+    height: 3px;
+    width: 0vw;
+    transition: width 1s ease-in-out;
+}
+.box{
+    border: 2px solid black;
+    font-size: 8vw;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover{
+    background-color: rgb(204, 230, 230);
+    cursor: pointer;
+}
+
+.boxtop0{
+    border-top: none;
+}
+
+.boxleft0{
+    border-left: none;
+}
+
+.boxright0{
+    border-right: none;
+}
+
+.boxbottom0{
+    border-bottom: none;
+}
+
+.gameInfo{
+    margin: 0 5vh;
+}
+
+.gameInfo h1{
+    font-size: 2.5rem;
+}
+
+.c2{
+    margin-top: 10px;
+}
+
+.info{
+    font-size: 20px;
+}
+
+
+
+.imagebox img{
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+
+#reset{
+    margin: 0px 25px;
+    padding: 6px 18px;
+    border-radius: 6px;
+    background-color: cyan;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+@media screen and (max-width: 900px) {
+    .container{
+        flex-wrap: wrap;
+    }
+    .gameInfo{
+        margin-top: 34px;
+    }
+    .gameContainer{
+        grid-template-columns: repeat(3,20vw);
+        grid-template-rows: repeat(3,20vw);
+    }
+    .gameInfo h1{
+        font-size: 1.8rem;
+    }
+  }
