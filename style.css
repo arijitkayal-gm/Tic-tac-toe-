@@ -6,8 +6,8 @@
 }
 
 nav{
-    background-color: rgb(2, 155, 122);
-    color: rgb(6, 6, 66);
+    background-color: rgb(1, 14, 15);
+    color: rgb(128, 226, 226);
     height: 75px;
     display: flex;
     align-items: center;
@@ -58,7 +58,7 @@ nav ul li{
 }
 
 .box:hover{
-    background-color: rgb(204, 230, 230);
+    background-color: rgb(220, 241, 241);
     cursor: pointer;
 }
 
