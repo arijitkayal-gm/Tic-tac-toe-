@@ -2,6 +2,8 @@ const audioTurn=new Audio("playturn.mp3");
 const winner=new Audio("winner.mp3");
 let turn ="X";
 let gameover=false;
+let isResponsive=false;
+let resolution=window.matchMedia("(max-width: 900px)");
 
 //change turn
 const changeTurn=()=>{
@@ -21,16 +23,43 @@ const checkWinner=()=>{
         [0,4,8,0,15,45],
         [2,4,6,0,15,135],
     ]
-    win.forEach(e=>{
-        if((boxContainer[e[0]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[2]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[0]].innerText!=="")){
-            gameover=true;
-            winner.play();
-            document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="200px";
-            document.getElementsByClassName("info")[0].innerText=boxContainer[e[0]].innerText + " Won.";
-            document.querySelector(".line").style.width='30vw';
-            document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
-        }
-    })
+    let win2=[
+        [0,1,2,0,10,0],
+        [3,4,5,0,30,0],
+        [6,7,8,0,50,0],
+        [0,3,6,-20,30,90],
+        [1,4,7,0,30,90],
+        [2,5,8,20,30,90],
+        [0,4,8,0,30,45],
+        [2,4,6,0,30,135],
+    ]
+    if (resolution.matches) {
+        win2.forEach(e=>{
+            if((boxContainer[e[0]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[2]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[0]].innerText!=="")){
+                gameover=true;
+                winner.play();
+                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="200px";
+                document.getElementsByClassName("info")[0].innerText=boxContainer[e[0]].innerText + " Won.";
+                responsiveLine(resolution);
+                document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+            }
+        })
+    }else{
+        win.forEach(e=>{
+            if((boxContainer[e[0]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[2]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[0]].innerText!=="")){
+                gameover=true;
+                winner.play();
+                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="200px";
+                document.getElementsByClassName("info")[0].innerText=boxContainer[e[0]].innerText + " Won.";
+                document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+                if(isResponsive===false){
+                    document.querySelector(".line").style.width='30vw';
+                }
+                responsiveLine(resolution);
+            }
+        })
+    }
+    
 }
 
 //Reset 
@@ -68,3 +97,13 @@ let Reset=document.getElementById("reset");
 Reset.addEventListener("click",()=>{
     reset();
 })
+
+//Responsive line animation
+const responsiveLine=(res)=>{
+    if(res.matches){
+        isResponsive=true;
+        document.querySelector(".line").style.width='60vw';
+        console.log("responsive")
+    }
+}
+resolution.addEventListener("change",responsiveLine);
