@@ -1,129 +1,199 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@600;700&family=Heebo&family=Oswald:wght@700&display=swap');
 
-*{
+
+* {
     margin: 0;
-    padding: 0; 
+    padding: 0;
+}
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
 }
 
-nav{
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+nav {
     background-color: rgb(1, 14, 15);
-    color: rgb(128, 226, 226);
+    color: white;
     height: 75px;
     display: flex;
     align-items: center;
     
 }
 
-nav ul{
+nav ul {
     list-style-type: none;
     display: flex;
     align-items: center;
 }
 
-nav ul li{
+nav ul li {
     margin: 0 12px;
     font-family: 'Edu NSW ACT Foundation', cursive;
-    font-family: 'Heebo', sans-serif; 
-    font-family: 'Oswald', sans-serif; 
+    font-family: 'Heebo', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 3vh;
+
 }
 
-.container{
+.container {
     margin-top: 10vh;
     display: flex;
     justify-content: center;
 }
 
-.gameContainer{
-    
+.gameContainer {
+
     display: grid;
-    grid-template-columns: repeat(3,10vw);
-    grid-template-rows: repeat(3,10vw);
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
     position: relative;
 }
 
-.line{
+.line {
     position: absolute;
+    opacity: 0;
     background-color: black;
     height: 3px;
     width: 0vw;
-    transition: width 1s ease-in-out;
+    transition: opacity 0.8s ease-in-out;
+
 }
-.box{
-    border: 2px solid black;
+
+.box {
+    border:3px solid black;
     font-size: 8vw;
-    display: flex;  
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.box:hover{
-    background-color: rgb(220, 241, 241);
+.box:hover {
+    background-color: rgb(255, 255, 255,0.1);
+    transition: background-color 0.3s ease-in-out;
+    border: 1px solid #ffffff80;
     cursor: pointer;
 }
 
-.boxtop0{
+.boxtop0 {
     border-top: none;
 }
 
-.boxleft0{
+.boxleft0 {
     border-left: none;
 }
 
-.boxright0{
+.boxright0 {
     border-right: none;
 }
 
-.boxbottom0{
+.boxbottom0 {
     border-bottom: none;
 }
 
-.gameInfo{
+.gameInfo {
     margin: 0 5vh;
 }
 
-.gameInfo h1{
+.gameInfo h1 {
     font-size: 2.5rem;
 }
 
-.c2{
+.c2 {
     margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5vw;
 }
 
-.info{
+.info {
     font-size: 20px;
 }
 
 
 
-.imagebox img{
-    width: 0;
-    transition: width 1s ease-in-out;
+.imagebox img {
+    margin-top: 2vh;
+    width: 200px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-#reset{
-    margin: 0px 25px;
-    padding: 6px 18px;
-    border-radius: 6px;
-    background-color: cyan;
-    cursor: pointer;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 15px;
-    font-weight: lighter;
-}
 
 @media screen and (max-width: 900px) {
-    .container{
+    .container {
         flex-wrap: wrap;
     }
-    .gameInfo{
+
+    .gameInfo {
         margin-top: 34px;
     }
-    .gameContainer{
-        grid-template-columns: repeat(3,20vw);
-        grid-template-rows: repeat(3,20vw);
+
+    .gameContainer {
+        grid-template-columns: repeat(3, 20vw);
+        grid-template-rows: repeat(3, 20vw);
     }
-    .gameInfo h1{
+
+    .gameInfo h1 {
         font-size: 1.8rem;
     }
-  }
+}
+
+/* Pop animation when placing X/O */
+.boxContainer.pop {
+    animation: pop 0.2s ease-in-out;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Highlight winner */
+.box.winner {
+    background-color: #ffffff79;
+    border: 1px solid #ffffff80;
+    transition: background-color 0.5s;
+}
+
+/* Button CSS */
+
+.button {
+    color: #ecf0f1;
+    font-size: 2.5vh;
+    background:#353535a1;
+    border: 0.1px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 0.5vw 0.5vw 0px #000000a1;
+    transition: all 0.1s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button:active {
+    box-shadow: 2px 2px 0px #000000a1;
+    position: relative;
+    top: 2px;
+}

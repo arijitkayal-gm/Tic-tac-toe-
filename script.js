@@ -38,10 +38,11 @@ const checkWinner=()=>{
             if((boxContainer[e[0]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[2]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[0]].innerText!=="")){
                 gameover=true;
                 winner.play();
-                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="200px";
+                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.opacity="1";
                 document.getElementsByClassName("info")[0].innerText=boxContainer[e[0]].innerText + " Won.";
                 responsiveLine(resolution);
                 document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+                document.querySelector(".line").style.opacity='1';
             }
         })
     }else{
@@ -49,9 +50,10 @@ const checkWinner=()=>{
             if((boxContainer[e[0]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[2]].innerText===boxContainer[e[1]].innerText)&&(boxContainer[e[0]].innerText!=="")){
                 gameover=true;
                 winner.play();
-                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="200px";
+                document.querySelector(".imagebox").getElementsByTagName("img")[0].style.opacity="1";
                 document.getElementsByClassName("info")[0].innerText=boxContainer[e[0]].innerText + " Won.";
                 document.querySelector(".line").style.transform=`translate(${e[3]}vw,${e[4]}vw) rotate(${e[5]}deg)`;
+                document.querySelector(".line").style.opacity='1';
                 if(isResponsive===false){
                     document.querySelector(".line").style.width='30vw';
                 }
@@ -69,10 +71,11 @@ const reset=()=>{
         element.innerText="";
     });
     turn="X";
-    document.querySelector(".imagebox").getElementsByTagName("img")[0].style.width="0px";
+    document.querySelector(".imagebox").getElementsByTagName("img")[0].style.opacity="0";
     gameover=false;
     document.getElementsByClassName("info")[0].innerText="Turn for "+turn;
     document.querySelector(".line").style.width='0vw';
+    document.querySelector(".line").style.opacity='0';
 }
 
 //Game Logic
@@ -85,7 +88,7 @@ Array.from(box).forEach(element=>{
             turn=changeTurn();
             audioTurn.play();
             checkWinner();
-            if(gameover==="false"){
+            if(!gameover){
                 document.getElementsByClassName("info")[0].innerText="Turn for "+turn;
             }
         }
@@ -103,6 +106,7 @@ const responsiveLine=(res)=>{
     if(res.matches){
         isResponsive=true;
         document.querySelector(".line").style.width='60vw';
+        document.querySelector(".line").style.opacity='0';
         console.log("responsive")
     }
 }
