@@ -22,9 +22,10 @@ Play the game online: [Tic-Tac-Toe Live](https://arijitkayal-gm.github.io/Tic-ta
 ## 🚀 Features
 
 - **Two-Player Mode:** Players X and O take turns.
-- **Win Detection:** Alerts when a player wins or if it's a draw.
+- **Win Detection:** Alerts when a player wins.
 - **Responsive Design:** Compatible with various screen sizes.
 - **Restart Option:** Reset the game at any time.
+- **Animated Background.
 
 ## 🛠️ Technologies Used
 
