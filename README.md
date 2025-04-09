@@ -10,12 +10,14 @@ Play the game online: [Tic-Tac-Toe Live](https://arijitkayal-gm.github.io/Tic-ta
 
 ![Game Start](screenshots/game_ongoing.png)
 
-*Game board at the start.*
+*Game board in the middle of a game.*
 
 ![Player X Wins](screenshots/game_win_pc.png.png)
+*Player X wins the game in a PC.*
+
 ![Player X Wins](screenshots/game_win_mobile.png)
 
-*Player X wins the game.*
+*Player X wins the game in a mobile.*
 
 ## 🚀 Features
 
