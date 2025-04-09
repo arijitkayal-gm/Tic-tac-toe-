@@ -12,7 +12,7 @@ Play the game online: [Tic-Tac-Toe Live](https://arijitkayal-gm.github.io/Tic-ta
 
 *Game board in the middle of a game.*
 
-![Player X Wins](screenshots/game_win_pc.png.png)
+![Player X Wins](screenshots/game_win_pc.png)
 *Player X wins the game in a PC.*
 
 ![Player X Wins](screenshots/game_win_mobile.png)
