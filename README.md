@@ -9,19 +9,19 @@
 <h1 align="center">TicTacToe</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/arijitkayal-gm/tictactoe?color=56BEB8">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/arijitkayal-gm/Tic-tac-toe-?color=56BEB8">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/arijitkayal-gm/tictactoe?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/arijitkayal-gm/Tic-tac-toe-?color=56BEB8">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/arijitkayal-gm/tictactoe?color=56BEB8">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/arijitkayal-gm/Tic-tac-toe-?color=56BEB8">
 
-  <img alt="License" src="https://img.shields.io/github/license/arijitkayal-gm/tictactoe?color=56BEB8">
+  <img alt="License" src="https://img.shields.io/github/license/arijitkayal-gm/Tic-tac-toe-?color=56BEB8">
 
-  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/arijitkayal-gm/tictactoe?color=56BEB8" /> -->
+  <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/arijitkayal-gm/Tic-tac-toe-?color=56BEB8" /> -->
 
-  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/arijitkayal-gm/tictactoe?color=56BEB8" /> -->
+  <!-- <img alt="Github forks" src="https://img.shields.io/github/forks/arijitkayal-gm/Tic-tac-toe-?color=56BEB8" /> -->
 
-  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/arijitkayal-gm/tictactoe?color=56BEB8" /> -->
+  <!-- <img alt="Github stars" src="https://img.shields.io/github/stars/arijitkayal-gm/Tic-tac-toe-?color=56BEB8" /> -->
 </p>
 
 <!-- Status -->
@@ -93,7 +93,7 @@ $ yarn start
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-Made with :heart: by <a href="https://github.com/arijitkayal-gm" target="_blank">{{YOUR_NAME}}</a>
+Made with :heart: by <a href="https://github.com/arijitkayal-gm" target="_blank">Arijit Kayal</a>
 
 &#xa0;
 
