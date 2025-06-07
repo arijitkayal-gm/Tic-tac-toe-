@@ -1,11 +1,12 @@
 const audioTurn = new Audio("playturn.mp3");
 const winnerSound = new Audio("winner.mp3");
+const gameOver = new Audio("gameover.mp3");
 
 let turn = "X";
 let gameover = false;
 let isResponsive = false;
 const resolution = window.matchMedia("(max-width: 900px)");
-const box=document.getElementsByClassName("box");
+const box = document.getElementsByClassName("box");
 
 const winPatternsDesktop = [
     [0, 1, 2, 0, 5, 0],
@@ -38,7 +39,7 @@ const responsiveLine = (res) => {
     isResponsive = res.matches;
     const line = document.querySelector(".line");
     line.style.width = res.matches ? "60vw" : "0vw";
-    
+
 };
 responsiveLine(resolution);
 resolution.addEventListener("change", responsiveLine);
@@ -46,9 +47,9 @@ resolution.addEventListener("change", responsiveLine);
 // Check Winner
 const checkWinner = () => {
     const boxContainer = document.getElementsByClassName("boxContainer");
-    
-    const winArray = resolution.matches ? winPatternsMobile : winPatternsDesktop;
 
+    const winArray = resolution.matches ? winPatternsMobile : winPatternsDesktop;
+    let someoneWon = false;
     winArray.forEach((e) => {
         const [a, b, c] = e;
         if (
@@ -59,11 +60,17 @@ const checkWinner = () => {
             gameover = true;
             winnerSound.play();
             document.querySelector(".imagebox img").style.opacity = "1";
-            document.querySelector(".info").innerText = boxContainer[a].innerText + " Won.";
+            const info = document.querySelector(".info");
+            info.innerText = boxContainer[a].innerText + " Won.";
+            info.classList.add("win-animate"); // 🎯 Trigger win animation
             const line = document.querySelector(".line");
             line.style.transform = `translate(${e[3]}vw, ${e[4]}vw) rotate(${e[5]}deg)`;
             line.style.opacity = "1";
             line.style.width = isResponsive ? "60vw" : "30vw";
+
+            setTimeout(() => {
+                info.classList.remove("win-animate");
+            }, 500);
 
             // Highlight winning boxes
             [a, b, c].forEach(index => {
@@ -71,6 +78,22 @@ const checkWinner = () => {
             });
         }
     });
+    // Check for draw (no winner, and all boxes filled)
+    if (!someoneWon && !gameover) {
+        const allFilled = Array.from(boxContainer).every(box => box.innerText !== "");
+        if (allFilled) {
+            gameover = true;
+            const info = document.querySelector(".info");
+            info.innerText = "It's a Draw!";
+            info.classList.add("draw-animate");
+            document.querySelector(".imagebox img").style.opacity = "1";
+            gameOver.play();
+
+            setTimeout(() => {
+                info.classList.remove("draw-animate");
+            }, 500);
+        }
+    }
 };
 
 // Reset game
@@ -85,6 +108,7 @@ const reset = () => {
     turn = "X";
     gameover = false;
     document.querySelector(".info").innerText = "Turn for " + turn;
+    document.querySelector(".info").classList.remove("draw-animate", "win-animate");
     document.querySelector(".imagebox img").style.opacity = "0";
     const line = document.querySelector(".line");
     line.style.width = "0vw";
