@@ -1,5 +1,6 @@
 <div align="center" id="top"> 
-  <img src="screenshots/play.gif" alt="TicTacToe" />
+  <img src="screenshots/play1.gif" alt="TicTacToe" />
+  <img src="screenshots/play2.gif" alt="TicTacToe" />
 
   &#xa0;
 
